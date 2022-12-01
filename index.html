@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Binary To Decimal</title>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
+		<link
+			rel="stylesheet"
+			href="./styles.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+			crossorigin="anonymous" />
+		<script src="./index.js"></script>
+	</head>
+
+	<!-- TODO: 
+        1. User can enter up to 8 binary digits in one input field
+        2. User must be notified if anything other than a 0 or 1 was entered
+        3. User views the results in a single output field containing the decimal (base 10) equivalent of the binary number that was entered
+
+        MUST:
+            -   Arrays may not be used to contain the binary digits entered by the user
+            -   Determining the decimal equivalent of a particular binary digit in the sequence must be calculated using a single mathematical function, for example the natural logarithm. It's up to you to figure out which function to use.
+
+-->
+
+	<body id="override">
+		<div class="container text-center text-dark">
+			<div class="row align-items-center mb-5">
+				<h1 class="dark">Binary To Decimal Convertor</h1>
+			</div>
+			<div class="row align-items-center mb-5">
+				<h2>Enter upto 8 digit binary</h2>
+			</div>
+			<form autocomplete="off">
+				<div class="row">
+					<input
+						id="digits"
+						class="center col mb-5 text-center"
+						type="text"
+						placeholder="Enter a binary digit"
+						pattern="[0-9]"
+						minlength="1"
+						maxlength="8"
+						required
+						inputmode="numeric"
+						oninput="this.value = this.value.replace(/[^0-1.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+
+					<h2 class="mb-5 col">
+						Decimal Value: <span id="result"></span>
+					</h2>
+				</div>
+				<div class="row align-items-center mb-5">
+					<button
+						type="button"
+						onclick="convert()">
+						Convert
+					</button>
+				</div>
+			</form>
+			<div><h2>Examples of a binary digits</h2></div>
+		</div>
+	</body>
+</html>
